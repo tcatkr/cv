@@ -1,6 +1,6 @@
 ---
-title: Nick Strayer's Resume"
-author: Nick Strayer
+title: Seongkyoon Jeong's Resume"
+author: Seongkyoon Jeong
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -34,8 +34,8 @@ position_data <- read_csv('positions.csv') %>%
   mutate(
     # Build some custom sections by collapsing others
     section = case_when(
-      section %in% c('research_positions', 'industry_positions') ~ 'positions', 
-      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
+      section %in% c('research_positions', 'teaching_positions') ~ 'positions', 
+      #section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
       TRUE ~ section
     )
   ) 
@@ -54,12 +54,8 @@ Contact {#contact}
 
 
 
-- <i class="fa fa-envelope"></i> nick.strayer@gmail.com
-- <i class="fa fa-twitter"></i> NicholasStrayer
-- <i class="fa fa-github"></i> github.com/nstrayer
-- <i class="fa fa-link"></i> [nickstrayer.me](http://nickstrayer.me/)
-- <i class="fa fa-phone"></i> (734) 645-0110
-
+- <i class="fa fa-envelope"></i> sjeong19@asu.edu
+- <i class="fa fa-github"></i> github.com/tcatkr
 
 
 Language Skills {#skills}
@@ -69,34 +65,30 @@ Language Skills {#skills}
 ```{r}
 skills <- tribble(
   ~skill,               ~level,
-  "R",                  5,
-  "Javascript (d3.js)", 4.5,
+  "Stata",              5,
+  "C++",                4,
   "Python",             4,
-  "Bash",               3.5,
-  "SQL",                3,
-  "C++",                3,
-  "AWK",                3
+  "R",                  3,
+  "SQL",                3
 )
 build_skill_bars(skills)
 ```
 
 
 
-Open Source Contributions {#open-source}
+Projects {#project}
 --------------------------------------------------------------------------------
 
-All projects available at `github.com/nstrayer/<name>`
+All project groups I joined are available through the links below
 
-
-- `shinysense`: R package to use sensor data in Shiny apps
-- `tuftesque`: Hugo theme (behind LiveFreeOrDichotomize.com)
-- `slid3r`: D3 add-on for fully svg slider inputs
+- [ASU OM Review](https://asuomreview.com/): Recent OSCM paper review book project, organized by ASU PhDs
+- [CASN-RA](https://research.wpcarey.asu.edu/supply-networks/): Complex adaptive supply networks research accelerator
 
 
 More info {#more-info}
 --------------------------------------------------------------------------------
 
-See full CV at nickstrayer.me/cv for more complete list of positions and publications.
+See [Google Scholar](https://scholar.google.com/citations?user=lPxNOxEAAAAJ&hl=en&oi=ao) page for the complete list of publications.
 
 
 Disclaimer {#disclaimer}
@@ -104,7 +96,7 @@ Disclaimer {#disclaimer}
 
 Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
 
-Source code: [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
+Source code: [github.com/tcatkr/cv](https://github.com/nstrayer/cv).
 
 Last updated on `r Sys.Date()`.
 
@@ -114,15 +106,13 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Seongkyoon Jeong {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-intro_text <- "I have made [visualizations viewed by hundreds of thousands of people](https://www.nytimes.com/interactive/2016/08/26/us/college-student-migration.html), [sped up query times for 25 terabytes of data by an average of 4,800 times](https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/), and built [packages for R](https://github.com/nstrayer/shinysense) that let you [do magic](http://nickstrayer.me/dataDayTexas/).
+intro_text <- "I'm a Ph.D. candidate in the [Department of Supply Chain Management](https://wpcarey.asu.edu/supply-chain-management-degrees) at [Arizona State University](https://www.asu.edu/).  My research interests like in the domain of digital supply chain management such as innovation of digital services and cybersecurity in supply chains. My goal is to to not only uncover the nature of digital supply chains, but further provide insights into how digital supply chain can achieve operational excellence.
 
-Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
-"
-
+Research methods I use include machine learning, data mining, econometric causal inference, and structural estimation as well as qualiative methods for inductive research."
 
 cat(sanitize_links(intro_text))
 ```
@@ -137,6 +127,13 @@ position_data %>% print_section('education')
 ```
 
 
+Selected Publications {data-icon=newspaper}
+--------------------------------------------------------------------------------
+
+```{r}
+position_data %>% print_section('academic_articles')
+```
+
 
 Selected Positions {data-icon=suitcase}
 --------------------------------------------------------------------------------
@@ -145,12 +142,11 @@ Selected Positions {data-icon=suitcase}
 position_data %>% print_section('positions')
 ```
 
-Selected Writing {data-icon=newspaper}
+Award and Fellowships {data-icon=star}
 --------------------------------------------------------------------------------
 
-
 ```{r}
-position_data %>% print_section('writings')
+position_data %>% print_section('award_and_fellowships')
 ```
 
 
